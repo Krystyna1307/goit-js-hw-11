@@ -8,16 +8,50 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+    <form class="form js-search-form">
+      <input
+        class="search-input"
+        type="input"
+        name="searchValue"
+        placeholder="Search images..."
+      />
 
-    <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
-    </main>
+      <button type="submit" class="btn">Search</button>
+    </form>
 
-    <load src="./partials/footer.html" />
+    <ul class="gallery"></ul>
 
+    <!-- <li class="li-gallery">
+      <div class="img-box">
+        <a class="gallery-link" href="${photo.largeImageURL}">
+          <img
+            class="gallery-image"
+            src="${photo.webformatURL}"
+            alt="${photo.tags}"
+            title="${photo.tags}"
+        /></a>
+      </div>
+      <div class="description-box">
+        <div class="param-boxes">
+          <p class="parameters">likes</p>
+          <p class="values">${photo.likes}</p>
+        </div>
+        <div class="param-boxes">
+          <p class="parameters">views</p>
+          <p class="values">${photo.views}</p>
+        </div>
+        <div class="param-boxes">
+          <p class="parameters">comments</p>
+          <p class="values">${photo.comments}</p>
+        </div>
+        <div class="param-boxes">
+          <p class="parameters">downloads</p>
+          <p class="values">${photo.downloads}</p>
+        </div>
+      </div>
+    </li> -->
+
+    <script type="module" src="./js/pixabay-api.js"></script>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
