@@ -105,7 +105,9 @@
   border-color: #ff3d00 #ff3d00 transparent #ff3d00;
   border-radius: 50%;
   display: block;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }
