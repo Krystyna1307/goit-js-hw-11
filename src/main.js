@@ -8,7 +8,6 @@ import { BASE_URL, API_KEY } from "./js/pixabay-api";
 
 import createGalleryMarkup from './js/render-functions.js';
 
-
 const form = document.querySelector('.js-search-form');
 const gallery = document.querySelector('.gallery');
 
@@ -28,9 +27,11 @@ function onSubmit(event) {
 
     const {
         searchValue: { value: query },
-        } = form.elements;
+    } = form.elements;
+    
+    const trimmedQuery = query.trim();
 
-    if (query === '') {
+    if (trimmedQuery === '') {
         iziToast.show({
             message: 'Please fill search input',
             position: 'topCenter',
@@ -41,7 +42,7 @@ function onSubmit(event) {
 
     const options = {
         key: API_KEY,
-        q: query,
+        q: trimmedQuery,
         image_type: "photo",
         orientation: "horizontal",
         safesearch: "true",
@@ -72,5 +73,5 @@ function onSubmit(event) {
         })
         .catch(error => {
             console.log(error);
-        });
+        })
 }
