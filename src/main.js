@@ -10,6 +10,7 @@ import createGalleryMarkup from './js/render-functions.js';
 
 const form = document.querySelector('.js-search-form');
 const gallery = document.querySelector('.gallery');
+const loader = document.getElementById('loader');
 
 const showBox = new SimpleLightbox('.img-box a', {
         captions: true,
@@ -50,6 +51,7 @@ function onSubmit(event) {
     const params = new URLSearchParams(options);
 
     gallery.innerHTML = '';
+    loader.classList.remove('hidden');
 
 
     fetch(`${BASE_URL}?key=${API_KEY}&${params}`)
@@ -74,4 +76,7 @@ function onSubmit(event) {
         .catch(error => {
             console.log(error);
         })
+        .finally(() => {
+            loader.classList.add('hidden');;
+        });
 }
